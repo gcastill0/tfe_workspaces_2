@@ -1,16 +1,21 @@
+variable "workspaces" {
+  description = "This is a test"
+
+  default = [
+    {
+      "ws_name" = "bla1",
+      "ws_repo" = "gcastill0/sandbox-aws"
+    },
+    {
+      "ws_name" = "bla2",
+      "ws_repo" = "gcastill0/sandbox-aws"
+    },
+  ]
+}
+
 variable "terraform_version" {
   description = "(Optional) The version of Terraform to use for the workspace."
   default     = "0.11.14"
-}
-
-variable "workspace_name" {
-  description = "Desired name for workspace."
-  default     = "test"
-}
-
-variable "vcs_repo" {
-  description = "VCS repo in the format org_name/repo_name."
-  default     = "gcastill0/sandbox-aws"
 }
 
 variable "TFE_HOST" {

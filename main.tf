@@ -4,26 +4,29 @@ provider "tfe" {
 }
 
 resource "tfe_workspace" "workspace" {
-  name              = "${var.workspace_name}"
+  count             = "${length(var.workspaces)}"
+  name              = "${var.workspaces[count.index].ws_name}"
   organization      = "${var.TFE_ORG_NAME}"
   terraform_version = "${var.terraform_version}"
 
   vcs_repo {
-    identifier     = "${var.vcs_repo}"
+    identifier     = "${var.workspaces[count.index].ws_repo}"
     oauth_token_id = "${var.OAUTH_TOKEN_ID}"
   }
 }
 
 resource "tfe_variable" "aws_secret_access_key" {
+  count        = length(var.workspaces)
   key          = "AWS_SECRET_ACCESS_KEY"
   value        = "${var.AWS_SECRET_ACCESS_KEY}"
   category     = "env"
-  workspace_id = "${tfe_workspace.workspace.id}"
+  workspace_id = "${element(tfe_workspace.workspace.*.id, count.index)}"
 }
 
 resource "tfe_variable" "aws_access_key_id" {
+  count        = length(var.workspaces)
   key          = "AWS_ACCESS_KEY_ID"
   value        = "${var.AWS_ACCESS_KEY_ID}"
   category     = "env"
-  workspace_id = "${tfe_workspace.workspace.id}"
+  workspace_id = "${element(tfe_workspace.workspace.*.id, count.index)}"
 }
