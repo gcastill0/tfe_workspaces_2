@@ -4,12 +4,6 @@ variable "workspaces" {
   default = [
     {
       "ws_name" = "test_1"
-
-      "ws_repo" = "gcastill0/sandbox-aws"
-    },
-    {
-      "ws_name" = "test_2"
-
       "ws_repo" = "gcastill0/sandbox-aws"
     },
   ]
