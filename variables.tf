@@ -2,8 +2,8 @@ variable "workspaces" {
   description = "Using a tupple combination to describe a TFE Workspace name and a VCS repo name. ws_name is the name for workspace. ws_repo is the VCS repo in the format org_name/repo_name."
 
   default = [
-    { "ws_name" = "bla1", "ws_repo" = "gcastill0/sandbox-aws" },
-    { "ws_name" = "bla2", "ws_repo" = "gcastill0/sandbox-aws" },
+    { "ws_name" = "rbi1", "ws_repo" = "gcastill0/sandbox-aws" },
+    { "ws_name" = "rbi2", "ws_repo" = "gcastill0/sandbox-aws" },
   ]
 }
 
@@ -17,7 +17,7 @@ variable "TFE_HOST" {
 }
 
 variable "TFE_ORG_NAME" {
-  description = "Desired name for workspace."
+  description = "(Required) Name of the organization."
 }
 
 variable "TFE_TOKEN" {
@@ -29,9 +29,9 @@ variable "OAUTH_TOKEN_ID" {
 }
 
 variable "AWS_SECRET_ACCESS_KEY" {
-  description = "Desired name for workspace."
+  description = "(Optional) This is the AWS secret key. It must be provided, but it can also be sourced from the AWS_SECRET_ACCESS_KEY environment variable, or via a shared credentials file if profile is specified."
 }
 
 variable "AWS_ACCESS_KEY_ID" {
-  description = "Desired name for workspace."
+  description = "(Optional) This is the AWS access key. It must be provided, but it can also be sourced from the AWS_ACCESS_KEY_ID environment variable, or via a shared credentials file if profile is specified."
 }
