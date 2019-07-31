@@ -15,11 +15,6 @@ variable "workspaces" {
   ]
 }
 
-variable "terraform_version" {
-  description = "(Optional) The version of Terraform to use for the workspace."
-  default     = "0.11.14"
-}
-
 variable "TFE_HOST" {
   description = "(Optional) The Terraform Enterprise hostname to connect to. Defaults to app.terraform.io. Can be overridden by setting the TFE_HOSTNAME environment variable."
 }
