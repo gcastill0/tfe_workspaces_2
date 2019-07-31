@@ -16,17 +16,19 @@ resource "tfe_workspace" "workspace" {
 }
 
 resource "tfe_variable" "aws_secret_access_key" {
-  count        = length(var.workspaces)
+  count        = "${length(var.workspaces)}"
   key          = "AWS_SECRET_ACCESS_KEY"
   value        = "${var.AWS_SECRET_ACCESS_KEY}"
   category     = "env"
+  sensitive    = "true"
   workspace_id = "${element(tfe_workspace.workspace.*.id, count.index)}"
 }
 
 resource "tfe_variable" "aws_access_key_id" {
-  count        = length(var.workspaces)
+  count        = "${length(var.workspaces)}"
   key          = "AWS_ACCESS_KEY_ID"
   value        = "${var.AWS_ACCESS_KEY_ID}"
   category     = "env"
+  sensitive    = "true"
   workspace_id = "${element(tfe_workspace.workspace.*.id, count.index)}"
 }
