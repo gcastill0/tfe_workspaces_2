@@ -1,15 +1,9 @@
 variable "workspaces" {
-  description = "This is a test"
+  description = "Using a tupple combination to describe a TFE Workspace name and a VCS repo name. ws_name is the name for workspace. ws_repo is the VCS repo in the format org_name/repo_name."
 
   default = [
-    {
-      "ws_name" = "bla1",
-      "ws_repo" = "gcastill0/sandbox-aws"
-    },
-    {
-      "ws_name" = "bla2",
-      "ws_repo" = "gcastill0/sandbox-aws"
-    },
+    { "ws_name" = "bla1", "ws_repo" = "gcastill0/sandbox-aws" },
+    { "ws_name" = "bla2", "ws_repo" = "gcastill0/sandbox-aws" },
   ]
 }
 
