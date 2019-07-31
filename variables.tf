@@ -3,12 +3,9 @@ variable "workspaces" {
 
   default = [
     {
-      "ws_name" = "test_1"
+      "ws_name" = "tfe_ws_1"
       "ws_repo" = "gcastill0/sandbox-aws"
-    },
-    {
-      "ws_name" = "test_2"
-      "ws_repo" = "gcastill0/sandbox-aws-2"
+      "tf_ver"  = "0.11.14"
     },
   ]
 }

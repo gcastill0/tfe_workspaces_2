@@ -7,7 +7,7 @@ resource "tfe_workspace" "workspace" {
   count             = "${length(var.workspaces)}"
   name              = "${var.workspaces[count.index].ws_name}"
   organization      = "${var.TFE_ORG_NAME}"
-  terraform_version = "${var.terraform_version}"
+  terraform_version = "${var.workspaces[count.index].tf_ver}"
 
   vcs_repo {
     identifier     = "${var.workspaces[count.index].ws_repo}"
