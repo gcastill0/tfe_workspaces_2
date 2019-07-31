@@ -7,6 +7,11 @@ variable "workspaces" {
       "ws_repo" = "gcastill0/sandbox-aws"
       "tf_ver"  = "0.11.14"
     },
+    {
+      "ws_name" = "tfe_ws_2"
+      "ws_repo" = "gcastill0/sandbox-aws-2"
+      "tf_ver"  = "0.11.14"
+    },
   ]
 }
 
